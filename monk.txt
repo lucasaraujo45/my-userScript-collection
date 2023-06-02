@@ -1,0 +1,40 @@
+// ==UserScript==
+// @name         Word Replacement
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  replace word green with blue on a webpage
+// @author       You
+// @match        *://*/*
+// @grant        none
+// @run-at       document-end
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Word replacement
+    var replacements = {
+        "green": "blue"
+    };
+
+    // Iterate over all text nodes
+    function replaceTextNodes(node) {
+        if(node.nodeType === Node.TEXT_NODE) {
+            // Replace words in the text node
+            var text = node.nodeValue;
+            for(var key in replacements) {
+                var regExp = new RegExp("\\b" + key + "\\b", 'gi');
+                text = text.replace(regExp, replacements[key]);
+            }
+            node.nodeValue = text;
+        } else {
+            // Iterate over child nodes
+            for(var i = 0; i < node.childNodes.length; i++) {
+                replaceTextNodes(node.childNodes[i]);
+            }
+        }
+    }
+
+    // Start the replacement
+    replaceTextNodes(document.body);
+})();
