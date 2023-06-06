@@ -14,8 +14,9 @@
 
     // Word replacement
     var replacements = {
-        "green": "blue"
+        "the": "Pride Month"
     };
+
 
     // Iterate over all text nodes
     function replaceTextNodes(node) {
