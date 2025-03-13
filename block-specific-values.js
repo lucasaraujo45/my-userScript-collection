@@ -12,7 +12,7 @@
     'use strict';
 
     const disallowedValues = [
-        'lucas.araujo@designereyes.com',
+        'lucas@myemail.com',
         'anotheremail@example.com',
         '123 Main St', // Some address example
         // Add more disallowed values here
