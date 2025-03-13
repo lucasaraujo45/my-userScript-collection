@@ -24,7 +24,7 @@
 
     // Word replacement
     var replacements = {
-        "the": "Pride Month"
+        "the": "yyyyyyyyyy"
     };
 
 
